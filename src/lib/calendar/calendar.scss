@@ -1,0 +1,104 @@
+@use 'sass:color';
+@use 'sass:math';
+
+.calendar {
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+    background: $calendar-background;
+    border-radius: 5px;
+    padding: 10px;
+
+    .month {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: $font-size;
+        margin-bottom: 20px;
+        font-weight: 300;
+        height: $size;
+
+        .year {
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            width: $size;
+            height: $size;
+            border: none;
+            border-radius: 40px;
+
+            &:hover {
+                background: #eee;
+            }
+        }
+    }
+
+    .days {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(7, 1fr);
+        color: #999;
+        font-weight: 600;
+        margin-bottom: 15px;
+
+        span {
+            width: $size;
+            justify-self: center;
+            align-self: center;
+            text-align: center;
+        }
+    }
+
+    .week {
+        display: flex;
+
+        .dates {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: percentage(math.div(1, 7));
+            padding: 2px;
+
+            button {
+                cursor: pointer;
+                outline: 0;
+                border: 0;
+                background: transparent;
+                font-size: $days-font-size;
+                justify-self: center;
+                align-self: center;
+                width: $size;
+                height: $size;
+                border-radius: 5px;
+                margin: 2px;
+                transition-duration: .2s;
+
+                &:disabled {
+                    pointer-events: none;
+                }
+
+                &.today {
+                    box-shadow: inset 0px 0px 0px 2px $main;
+                }
+
+                &:hover {
+                    background: #eee;
+                }
+
+                &:focus {
+                    background: $main;
+                    color: #fff;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

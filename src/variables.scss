@@ -1,0 +1,8 @@
+/* Variables and mixins declared here will be available in all other SCSS files */
+@use 'sass:color';
+
+$calendar-background: #fff;
+$size: 40px !default;
+$font-size: 20px !default;
+$days-font-size: 15px !default;
+$main: #4300b0 !default;
