@@ -20,7 +20,7 @@ export function getCalendar(year: number, month: number) {
     const isToday = new ETC()
     const calendar = [];
     let mo = -monthBeginning;
-    for (let week = 0; week < 5; week++) {
+    for (let week = 0; week < 6; week++) {
         const week = [];
         for (let days = 0; days < 7; days++) {
             week.push({

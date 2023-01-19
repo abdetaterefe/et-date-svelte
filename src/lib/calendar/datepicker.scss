@@ -1,0 +1,164 @@
+@use 'sass:color';
+@use 'sass:math';
+
+.pick {
+    box-shadow: inset 0px 0px 0px 2px $main;
+    border: none;
+    height: $datepicker-size;
+    width: 25%;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background: $main;
+        color: #fff;
+    }
+}
+
+.calendar {
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+    background: $calendar-background;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 5px;
+
+    .month {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: $datepicker-font-size;
+        margin-bottom: 20px;
+        font-weight: 300;
+        height: $datepicker-size;
+
+        .dropdown {
+            margin-left: 0.25rem;
+            margin-right: 0.25rem;
+            position: relative;
+            display: flex;
+            flex-grow: 1;
+            gap: $datepicker-size;
+
+            select {
+                width: 100%;
+                height: $datepicker-size;
+                border-radius: 5px;
+                background: transparent;
+            }
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            width: $datepicker-size;
+            height: $datepicker-size;
+            border: 2px solid black;
+            border-radius: 40px;
+
+            &:hover {
+                background: #eee;
+            }
+        }
+    }
+
+    .days {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(7, 1fr);
+        color: #999;
+        font-weight: 600;
+        margin-bottom: 15px;
+
+        span {
+            width: $datepicker-size;
+            font-size: $datepicker-font-size;
+            justify-self: center;
+            align-self: center;
+            text-align: center;
+        }
+    }
+
+    .week {
+        display: flex;
+
+        .dates {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: percentage(math.div(1, 7));
+            padding: 2px;
+
+            button {
+                cursor: pointer;
+                outline: 0;
+                border: 0;
+                background: transparent;
+                font-size: $datepicker-days-font-size;
+                justify-self: center;
+                align-self: center;
+                width: $datepicker-size;
+                height: $datepicker-size;
+                border-radius: 5px;
+                margin: 2px;
+                transition-duration: .2s;
+
+                &:disabled {
+                    pointer-events: none;
+                }
+
+                &.today {
+                    box-shadow: inset 0px 0px 0px 2px $main;
+                }
+
+                &:hover {
+                    background: #eee;
+                }
+
+                &:focus {
+                    background: $main;
+                    color: #fff;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .ct {
+        display: flex;
+        justify-content: space-around;
+        gap: $datepicker-size;
+
+        .close {
+            border: none;
+            height: $datepicker-size;
+            width: 100%;
+            border-radius: 5px;
+            background: transparent;
+            cursor: pointer;
+
+            &:hover {
+                background: #eee;
+            }
+        }
+
+        .today {
+            box-shadow: inset 0px 0px 0px 2px $main;
+            border: none;
+            height: $datepicker-size;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover {
+                background: $main;
+                color: #fff;
+            }
+        }
+    }
+}

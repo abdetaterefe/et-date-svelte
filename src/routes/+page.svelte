@@ -1,14 +1,8 @@
-<script>
-  import { Calendar } from "$lib";
+<script lang="ts">
+  import { Calendar, DatePicker } from "$lib";
+  function getDate(e: { detail: any }) {
+    console.log(e.detail);
+  }
 </script>
 
-<div class="cale">
-  <Calendar />
-</div>
-
-<style>
-  .cale{
-    padding: 10px;
-    background-color: aqua;
-  }
-</style>
+<DatePicker on:select={getDate} />
