@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { Calendar, DatePicker } from "$lib";
-  function getDate(e: { detail: any }) {
-    console.log(e.detail);
-  }
+  import { DatePicker, Calendar } from "$lib";
 </script>
 
-<DatePicker on:select={getDate} />
+<Calendar etLang />
+
+<DatePicker />
